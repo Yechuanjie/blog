@@ -12,10 +12,6 @@ before_install:
 install:
   - npm install
 
-before_script: 
-  - git config user.name "yechuanjie"
-  - git config user.email "1102684711@qq.com"
-
 script:
   # - hexo clean && hexo g && gulp && hexo deploy
   - hexo clean && hexo g && gulp
@@ -23,8 +19,10 @@ script:
 
   # 添加自定义域名
   # - echo 'yechuanjie.com' > CNAME
-  
+
   - git init
+  - git config user.name "yechuanjie"
+  - git config user.email "1102684711@qq.com"
   - git add .
   - git commit -m "Update"
   - git push -f "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
