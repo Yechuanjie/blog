@@ -51,7 +51,7 @@ footer:
   icon: hand-o-up
 
   # If not defined, will be used `author` from Hexo main config.
-  copyright: 琥珀丶川
+  # copyright: 琥珀丶川
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
   powered: false
@@ -149,8 +149,6 @@ scheme: Mist
 social:
   GitHub: https://github.com/Yechuanjie || github
   掘金: https://juejin.im/user/57eb8d41a0bb9f005863369c
-  知乎: https://www.zhihu.com/people/hu-po-zhu-chuan/activities
-  简书: https://www.jianshu.com/u/99cc8ff0a9df
   邮箱: mailto:yechuanjie.me@gmail.com
 
   # Google: https://plus.google.com/yourname || google

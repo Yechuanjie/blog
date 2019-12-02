@@ -1,4 +1,4 @@
-var OriginTitle = document.title || '琥珀丶川';
+var OriginTitle = document.title;
 var titleTime;
 var iconList = [
     'https://yechuanjie-image.oss-cn-beijing.aliyuncs.com/blog/腰果.png',
