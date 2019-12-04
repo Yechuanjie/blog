@@ -25,36 +25,32 @@ categories: JavaScript
 >假设有一个数组，我们需要统计里面的偶数
 
 ```javascript
-const arr = [3, 5, 7, 2, 1, 8, 4, -6];
+const arr = [3, 5, 7, 2, 1, 8, 4, -6]
 ```
 #### 使用if
 ```javascript
-let count = 0;
+let count = 0
 arr.forEach((item) => {
     if (Math.abs(item % 2) === 0) {
-        count += 1;
+        count += 1
     }
 })
-console.log(count); // 4
+console.log(count) // 4
 ```
 #### 不使用if（方法一）
 ```javascript
-let newArr = arr.filter((item) => {
-    return Math.abs(item % 2) > 0
-})
-console.log(newArr.length); // 4
+let newArr = arr.filter(item => Math.abs(item % 2) === 0 )
+console.log(newArr.length) // 4
 ```
 >使用filter过滤满足条件的数据，返回新数组的长度即可。
 
 #### 不使用if（方法二）
 ```javascript
 let count = 0;
-arr.forEach((item) => {
-    count += Math.abs(item % 2);
-})
-console.log(count); // 4
+arr.forEach((item) => count += Math.abs(item % 2))
+console.log(arr.length - count) // 4
 ```
->利用了偶数算法的返回值始终为0或1的特性，直接加到count上即可。
+>利用了偶数算法的返回值始终为0或1，得到不是偶数的count，使用数组长度减去count即可。
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -67,7 +63,8 @@ const summerOrOther = (month) => {
     if (month <= 9 && month >= 7) return 'summer';
     return 'other_season';
 }
-summerOrOther(new Date().getMonth() + 1);
+summerOrOther(7); //summer
+summerOrOther(10); //other_season
 ```
 #### 不使用if
 ```javascript
@@ -77,10 +74,9 @@ const condition = {
     9: 'summer',
     default: 'other_season'
 }
-const summerOrOther = (month) => {
-    return condition[month] || condition['default'];
-}
-summerOrOther(new Date().getMonth() + 1);
+const summerOrOther = month => condition[month] || condition['default']
+summerOrOther(9); //summer
+summerOrOther(10); //other_season
 ```
 >该方法并没有什么简单之处。但这样实现更能体现“代码即数据”的理念。一切操作都是对数据的处理，最后输出数据。
 
