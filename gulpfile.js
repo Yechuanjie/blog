@@ -6,7 +6,7 @@ var htmlclean = require('gulp-htmlclean');
 
 // 压缩 public 目录 html
 gulp.task('minify-html', function() {
-    return gulp.src('./public/blog/**/*.html')
+    return gulp.src('./public/**/*.html')
       .pipe(htmlclean())
       .pipe(htmlmin({
            removeComments: true,
@@ -14,21 +14,21 @@ gulp.task('minify-html', function() {
            minifyCSS: true,
            minifyURLs: true,
       }))
-      .pipe(gulp.dest('./public/blog'))
+      .pipe(gulp.dest('./public'))
 });
 
 // 压缩 public 目录 css
 gulp.task('minify-css', function() {
-    return gulp.src('./public/blog/**/*.css')
+    return gulp.src('./public/**/*.css')
         .pipe(minifycss())
-        .pipe(gulp.dest('./public/blog'));
+        .pipe(gulp.dest('./public'));
 });
 
 // 压缩 public/js 目录 js
 gulp.task('minify-js', function() {
-    return gulp.src('./public/blog/**/*.js')
+    return gulp.src('./public/**/*.js')
         .pipe(uglify())
-        .pipe(gulp.dest('./public/blog'));
+        .pipe(gulp.dest('./public'));
 });
 
 // var build = (done) => {
