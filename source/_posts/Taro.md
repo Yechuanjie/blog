@@ -20,7 +20,6 @@ categories: 多端统一
 #### Taro
 #### uni-app
 
-
 <!-- ## React-Native开发注意事项 -->
 ### 样式篇
 
@@ -139,9 +138,7 @@ numbers.forEach(numbers => { // Taro中这里必须用map
 <View onClick={() => {this.openPic}}></View>  
 ```
 - 暂不支持在 render() 之外的方法定义 JSX
-
   假设现在页面中有一个音乐组件，不能这样使用
-
 ```jsx
 const music = require('../assets/music.mp3');
 const loop = true;
@@ -219,6 +216,10 @@ render() {
 
 ### 总结
 
-总体来说，Taro的开发体验还是不错的。但在编译不同平台的时候，Taro都只会在dist目录下生成，无法同时编译多个平台的代码。
-
-Taro对小程序端的兼容性基本一致，按照Taro规范的语法和组件来书写项目，基本能实现各端小程序以及h5端的统一开发。react native端由于环境特殊，存在许多特殊的api无法通用的情况，也只能通过获取当前环境来做兼容处理。
+总体来说，Taro的开发体验还是不错的。在编译不同平台的时候，可以通过配置config/index.js中的outputRoot，来达到同时编译多个平台的代码的效果。
+```javascript
+const config = {
+  outputRoot: `dist/${process.env.TARO_ENV}`,
+}
+```
+Taro对小程序端的兼容性基本一致，按照Taro规范的语法和组件来书写项目，基本能实现各端小程序以及h5端的统一开发。react native端由于环境特殊，存在许多特殊的api无法通用的情况，只能通过获取当前环境来做兼容处理。
