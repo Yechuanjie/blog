@@ -6,21 +6,77 @@ tags:
   - React
 categories: 多端统一
 ---
-### Taro
 
-> 👽 Taro['tɑ:roʊ]，泰罗·奥特曼，宇宙警备队总教官，实力最强的奥特曼。
-
+> 👽 Taro['tɑ:roʊ]，泰罗·奥特曼，宇宙警备队总教官，实力最强的奥特曼。多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在**小程序端**、**H5**、**React Native**等各平台的应用。
 
 <!-- more -->
+
+### JSX篇
+
+#### jsx支持情况
+
+- 不能使用 **Array#map** 之外的方法操作 JSX 数组
+```jsx
+const numbers = [1,2,3,4,5];
+numbers.forEach(numbers => { // Taro中这里必须用map
+  if (someCase) {
+    return(
+      <View />
+    )
+  }
+})
+```
+- 不能在 JSX 参数中使用**匿名函数**
+```jsx
+<View onClick={() => {this.openPic}}></View>  
+```
+- 暂不支持在 render() 之外的方法定义 JSX
+  假设现在页面中有一个音乐组件，不能这样使用
+```jsx
+const music = require('../assets/music.mp3');
+const loop = true;
+musicComponent = () => {
+  return (
+    <Audio src={music} loop={loop} />
+  )
+}
+render() {
+  return (
+    {this.musicComponent()}
+  )
+}
+```
+
+- 不能在 JSX 参数中使用对象展开符
+```jsx
+<View {...this.props} />
+```
+- 不支持无状态组件
+
+  由于微信的 template 能力有限，不支持动态传值和函数，Taro 暂时只支持一个文件只定义一个组件。为了避免开发者疑惑，暂时不支持定义**无状态组件**。
+
+
+#### 所有元素组件化
+
+- 不能使用html标签，所有标签以**组件**形式书写。Taro实现了以微信小程序组件库为标准，结合jsx语法规范，定制了一套[组件库](https://nervjs.github.io/taro/docs/components-desc.html)，在不同的端上，会使用不同端的对应组件。
+
+- 组件名不能和页面名相同。
+
 ---
 
-> 多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在**小程序端**、**H5**、**React Native**等各平台的应用。
+### 配置篇
 
-### 多端统一开发框架对比
-#### Taro
-#### uni-app
+#### 项目配置
+项目初始后会默认自带微信小程序的配置文件**project.config.js**。
+打包成其他平台小程序前，需要对应在根目录添加对应配置文件，否则运行报错。
+- 微信小程序，[project.config.json](https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html?search-key=%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE)
+- 百度智能小程序，[project.swan.json](https://smartprogram.baidu.com/docs/develop/devtools/projectconfig/)
+- 头条小程序，project.tt.json，文档暂无，大部分字段与微信小程序一致
+- 支付宝小程序，无
 
-<!-- ## React-Native开发注意事项 -->
+
+----------
+
 ### 样式篇
 
 #### 兼容问题
@@ -114,71 +170,6 @@ height:100px
 #### 默认样式
 
 一些默认组件如**button**、**image**的默认样式在各个平台上不一致，开发前需要重置样式。
-
-
-----------
-
-### JSX篇
-
-#### jsx支持情况
-
-- 不能使用 **Array#map** 之外的方法操作 JSX 数组
-```jsx
-const numbers = [1,2,3,4,5];
-numbers.forEach(numbers => { // Taro中这里必须用map
-  if (someCase) {
-    return(
-      <View />
-    )
-  }
-})
-```
-- 不能在 JSX 参数中使用**匿名函数**
-```jsx
-<View onClick={() => {this.openPic}}></View>  
-```
-- 暂不支持在 render() 之外的方法定义 JSX
-  假设现在页面中有一个音乐组件，不能这样使用
-```jsx
-const music = require('../assets/music.mp3');
-const loop = true;
-musicComponent = () => {
-  return (
-    <Audio src={music} loop={loop} />
-  )
-}
-render() {
-  return (
-    {this.musicComponent()}
-  )
-}
-```
-
-- 不能在 JSX 参数中使用对象展开符
-```jsx
-<View {...this.props} />
-```
-- 不支持无状态组件
-
-  由于微信的 template 能力有限，不支持动态传值和函数，Taro 暂时只支持一个文件只定义一个组件。为了避免开发者疑惑，暂时不支持定义**无状态组件**。
-
-
-#### 所有元素组件化
-
-- 不能使用html标签，所有标签以**组件**形式书写。Taro实现了以微信小程序组件库为标准，结合jsx语法规范，定制了一套[组件库](https://nervjs.github.io/taro/docs/components-desc.html)，在不同的端上，会使用不同端的对应组件。
-
-- 组件名不能和页面名相同。
-
----
-### 配置篇
-
-#### 项目配置
-项目初始后会默认自带微信小程序的配置文件**project.config.js**。
-打包成其他平台小程序前，需要对应在根目录添加对应配置文件，否则运行报错。
-- 微信小程序，[project.config.json](https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html?search-key=%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE)
-- 百度智能小程序，[project.swan.json](https://smartprogram.baidu.com/docs/develop/devtools/projectconfig/)
-- 头条小程序，project.tt.json，文档暂无，大部分字段与微信小程序一致
-- 支付宝小程序，无
 
 
 ### 实际项目中遇到的问题
