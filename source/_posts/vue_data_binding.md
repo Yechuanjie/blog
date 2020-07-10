@@ -208,4 +208,4 @@ window.onload = () => {
 3. 通过监听器和解析器的协作，触发Watcher更新视图
 
 
-> 在即将到来的Vue3.x中，将会使用ES6的[Proxy](http://es6.ruanyifeng.com/#docs/proxy)代替，它可以直接劫持整个对象，并返回一个新对象，不管是操作便利程度还是底层功能上都远强于Object.defineProperty。
+> 在即将到来的Vue3.x中，将会使用ES6的[Proxy](http://es6.ruanyifeng.com/#docs/proxy)代替**Object.defineProperty**，它可以直接劫持整个对象，并返回一个新对象，不管是操作便利程度还是底层功能上都远强于Object.defineProperty。
