@@ -9,13 +9,15 @@ categories: JavaScript
 
 想提前看下效果的小伙伴请看[这里~](https://yechuanjie.com/lottie_demo)
 
+Lottie 是一个库，用于解析使用 [AE](https://www.adobe.com/cn/products/aftereffects.html) 制作的动画（动画需要通过 AE 中的 bodymovin 插件将其导出为 json 数据格式），支持`web`、`ios`、`android` 和 `react native`。
+
+<!-- more -->
+
 ### Lottie 简介
 
 [Lottie 官网](http://airbnb.io/lottie/)
 
-> Lottie 是一个库，用于解析使用 [AE](https://www.adobe.com/cn/products/aftereffects.html) 制作的动画（动画需要通过 AE 中的 bodymovin 插件将其导出为 json 数据格式），支持`web`、`ios`、`android`和`react native`。 这里主要介绍 Lottie 的 web 版本 **lottie-web** 库，它可以解析导出的动画 json 文件，并将其以 svg 或者 canvas 的方式将动画绘制到页面中。
-
-<!-- more -->
+>  这里主要介绍 Lottie 的 web 版本 **lottie-web** 库，它可以解析导出的动画 json 文件，并将其以 svg 或者 canvas 的方式将动画绘制到页面中。
 
 ### 为什么使用 Lottie
 

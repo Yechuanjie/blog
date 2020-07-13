@@ -7,13 +7,14 @@ tags:
 categories: Vue
 ---
 
->vue双向数据绑定原理：**监听器**、**解析器**、**视图更新**。
+vue双向数据绑定原理：`监听器`、`解析器`、`观察者`。
+
+<!-- more -->
+
 
 ### MVVM双向数据绑定流程
 
 ![MVVM双向数据绑定流程](https://yechuanjie-image.oss-cn-beijing.aliyuncs.com/18-7-24/64201803.jpg)
-
-<!-- more -->
 
 ### html
 
@@ -52,7 +53,7 @@ MyVue.prototype._init = (options) => {
 };
 ```
 
-### 实现Observe
+### 实现监听器 Observe
 
 > Observer 遍历数据对象。
 > 如果对某个数据赋值，会触发setter，就能监听数据变化
@@ -94,7 +95,7 @@ MyVue.prototype._observe = (data) => {
 };
 ```
 
-### 实现compile
+### 实现解析器 Compile
 > compile方法主要做以下事情：
 > 1. 解析模板指令
 > 2. 将模板中的变量替换成数据
@@ -149,7 +150,7 @@ MyVue.prototype._compile = (root) => {
 }
 ```
 
-### 实现Watcher
+### 实现观察者 Watcher
 > 每次数据发生变化 都会触发Watcher去更新视图
 
 ```javascript
