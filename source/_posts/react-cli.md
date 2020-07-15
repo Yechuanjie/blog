@@ -4,7 +4,7 @@ date: 2020-07-13 09:44:03
 tags:
 ---
 
-🎉`react` 移动端开发脚手架，技术栈 `react` + `antd-mobile` +`react-router` + `redux` + `typescript`
+🎉 `react` 移动端开发脚手架，技术栈 `react` + `antd-mobile` +`react-router` + `redux` + `typescript`
 
 <!-- more -->
 

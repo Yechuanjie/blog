@@ -7,11 +7,12 @@ tags:
 categories: JavaScript
 ---
 
-想提前看下效果的小伙伴请看[这里~](https://yechuanjie.com/lottie_demo)
-
-Lottie 是一个库，用于解析使用 [AE](https://www.adobe.com/cn/products/aftereffects.html) 制作的动画（动画需要通过 AE 中的 bodymovin 插件将其导出为 json 数据格式），支持`web`、`ios`、`android` 和 `react native`。
+🌾 `Lottie` 是一个库，用于解析使用 [AE](https://www.adobe.com/cn/products/aftereffects.html) 制作的动画（动画需要通过 AE 中的 bodymovin 插件将其导出为 json 数据格式），支持`web`、`ios`、`android` 和 `react native`。
 
 <!-- more -->
+
+想提前看下效果的小伙伴请看[这里~](https://yechuanjie.com/lottie_demo)
+
 
 ### Lottie 简介
 
@@ -98,13 +99,13 @@ animation.addEventeListener('event', info => {
 });
 ```
 
-| 事件名       | 描述                           |
-| ------------ | ------------------------------ |
-| enterFrame   | 播放每一帧动画的时候触发       |
-| loopComplete | 当前循环播放完成触发           |
-| complete     | 动画播放完成触发               |
+| 事件名          | 描述              |
+| ------------ | --------------- |
+| enterFrame   | 播放每一帧动画的时候触发    |
+| loopComplete | 当前循环播放完成触发      |
+| complete     | 动画播放完成触发        |
 | segmentStart | 开始播放一个动画片段的时候触发 |
-| destroy      | 动画销毁时触发                 |
+| destroy      | 动画销毁时触发         |
 
 #### 方法
 
@@ -115,18 +116,18 @@ animation.play();
 animation.setSpeed(1.5);
 ```
 
-| 方法名          | 参数及返回类型                            | 描述                           |
-| --------------- | ----------------------------------------- | ------------------------------ |
-| play            | (): void                                  | 播放                           |
-| stop            | (): void                                  | 停止并回到第 0 帧              |
-| pause           | (): void                                  | 暂停                           |
-| setLocationHref | (href: string): void                      | 设置本地资源路径               |
-| setSpeed        | (speed: number): void                     | 设置动画播放速速               |
-| goToAndPlay     | (value: number, isFrame?: boolean): void  | 前进到传入帧并继续播放         |
-| goToAndStop     | (value: number, isFrame?: boolean): void  | 前进到传入帧并停止播放         |
-| setDirection    | (direction: AnimationDirection): void     | 设置动画方向                   |
-| playSegments    | (segments: [], forceFlag?: boolean): void | 播放指定帧数组的动画;          |
-| destroy         | (): void                                  | 主动销毁动画                   |
+| 方法名             | 参数及返回类型                                   | 描述              |
+| --------------- | ----------------------------------------- | --------------- |
+| play            | (): void                                  | 播放              |
+| stop            | (): void                                  | 停止并回到第 0 帧      |
+| pause           | (): void                                  | 暂停              |
+| setLocationHref | (href: string): void                      | 设置本地资源路径        |
+| setSpeed        | (speed: number): void                     | 设置动画播放速速        |
+| goToAndPlay     | (value: number, isFrame?: boolean): void  | 前进到传入帧并继续播放     |
+| goToAndStop     | (value: number, isFrame?: boolean): void  | 前进到传入帧并停止播放     |
+| setDirection    | (direction: AnimationDirection): void     | 设置动画方向          |
+| playSegments    | (segments: [], forceFlag?: boolean): void | 播放指定帧数组的动画;     |
+| destroy         | (): void                                  | 主动销毁动画          |
 | getDuration     | (inFrames?: boolean): number              | 获取动画时长，可按帧或按秒返回 |
 
 ### 使用全球设计师分享的动画
