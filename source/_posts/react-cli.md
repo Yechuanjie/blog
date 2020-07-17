@@ -4,39 +4,39 @@ date: 2020-07-13 09:44:03
 tags:
 ---
 
-🎉 `react` 移动端开发脚手架，技术栈 `react` + `antd-mobile` +`react-router` + `redux` + `typescript`
+🎉 `react` 移动端开发脚手架，技术栈 `react` + `antd-moblie` + `typescript` + `react-router` + `redux`
 
 <!-- more -->
 
-该脚手架基于 [Create React App](https://github.com/facebook/create-react-app) 创建，方便快速搭建 react 移动端项目。[项目地址](http://yechuanjie.com/react-cli/index) && [仓库地址](https://github.com/Yechuanjie/react-cli)
+该脚手架基于 [Create React App](https://www.html.cn/create-react-app/) 创建，方便快速搭建 react 移动端项目。[仓库地址](https://github.com/Yechuanjie/react-cli) && [项目地址（请在移动端查看）](https://yechuanjie.com/react-cli/index)
 
-<span id="top">目录：</span>
+### <span id="top">目录</span>
 
-[✔ TypeScript 开发语言](#ts)
+[✅ TypeScript 开发语言](#ts)
 
-[✔ redux 状态管理](#redux)
+[✅ redux 状态管理](#redux)
 
-[✔ react-router 路由管理](#router)
+[✅ react-router 路由管理](#router)
 
-[✔ axios 封装及接口管理](#axios)
+[✅ axios 封装及接口管理](#axios)
 
-[✔ 本地 mock server 支持](#mock)
+[✅ 本地 mock server 支持](#mock)
 
-[✔ 本地跨域配置](#proxy)
+[✅ 本地跨域配置](#proxy)
 
-[✔ esint + prettier 统一开发规范](#eslint)
+[✅ esint + prettier 统一开发规范](#eslint)
 
-[✔ 支持自定义 webpack 配置](#webpack)
+[✅ 支持自定义 webpack 配置](#webpack)
 
-[✔ rem 适配方案 ](#rem)
+[✅ rem 适配方案 ](#rem)
 
-[✔ antd-moblie 组件按需加载](#antd)
+[✅ antd-moblie 组件按需加载](#antd)
 
-[✔ 配置 alias 别名](#alias)
+[✅ 配置 alias 别名](#alias)
 
-[✔ 配置打包分析](#analyze)
+[✅ 配置打包分析](#analyze)
 
-[✔ 配置多环境变量](#env)
+[✅ 配置多环境变量](#env)
 
 #### <span id="ts">✅ TypeScript 开发语言</span>
 
@@ -66,7 +66,7 @@ tags:
 
 `src/index.tsx` 中引入
 
-```tsx
+```js
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -82,7 +82,7 @@ ReactDOM.render(
 
 使用
 
-```tsx
+```js
 import { useSelector, useDispatch } from 'react-redux'
 import { setAppUserInfo } from '@/store/actions/user'
 
@@ -136,7 +136,7 @@ export const routes: RouteConfig[] = [
 
 `src/router/index.tsx`
 
-```tsx
+```jsx
 import React, { Suspense } from 'react'
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import { routes } from './routes'
@@ -169,26 +169,14 @@ export default RouterView
 ```ts
 import axios, { AxiosRequestConfig, Method } from 'axios'
 import envConfig from '@/config'
-/**
- * 接口返回类型 (根据后端返回的格式定义)
- * @interface ResponseType
- */
+// 接口返回类型 (根据后端返回的格式定义)
 interface ResponseType {
   data: any
   msg: string
   code: number
 }
-/**
- * 封装request
- *
- * @param {string} url
- * @param {Method} method
- * @param {*} [data]
- * @param {boolean} [loading]
- * @returns {Promise<ResponseType>}
- */
 export default function request(url: string, method: Method, data?: {}, loading?: boolean): Promise<ResponseType> {
-  /* 请求公共参数配置 */
+  // 请求公共参数配置
   const publicParams = {
     env: envConfig.ENV_TYPE,
     mockType: 1,
@@ -290,10 +278,7 @@ mock 数据根据需求在`src/mock/mock.mjs`中自定义修改，更多 mock �
 import Mock from 'mockjs'
 import express from 'express'
 const router = express.Router()
-/*
- * get类型接口
- * /api/getInfo 获取列表
- */
+// get类型接口  /api/getInfo 获取列表
 router.get('/getInfo', (req, res) => {
   console.info(req.query.type)
   const data = Mock.mock({
@@ -453,7 +438,7 @@ module.exports = override(
 )
 ```
 
-##### tsconfig.json
+#### tsconfig.json
 
 根目录的 `tsconfig.json` 文件中也需要设置别名的支持，否则 ts 会提示无法识别别名
 
@@ -534,28 +519,28 @@ module.exports = override(
 在代码中可以通过 `process.env.REACT_APP_ENV` 访问所在的环境变量。除了 `REACT_APP_*` 变量之外，在你的应用代码中始终可用的还有两个特殊的变量`NODE_ENV` 和`BASE_URL`
 
 - **.env.development**
-  
-  ```javascript
+
+```javascript
   # 测试环境
   # must start with REACT_APP_
   REACT_APP_ENV = 'development'
-  ```
+```
 
 - **.env.staging**
-  
-  ```javascript
+
+```javascript
   # 预发布环境
   # must start with REACT_APP_
   REACT_APP_ENV = 'staging'
-  ```
+```
 
 - **.env.production**
-  
-  ```javascript
+
+```javascript
   # 正式环境
   # must start with REACT_APP_
   REACT_APP_ENV = 'production'
-  ```
+```
 
 这里我们并没有定义全部环境变量，只定义了基础的环境类型 REACT_APP_ENV `development`，`staging`， `production` 。变量我们统一在 `src/config/env.*.ts` 里进行管理
 
