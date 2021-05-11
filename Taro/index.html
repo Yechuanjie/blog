@@ -1,0 +1,333 @@
+<!DOCTYPE html><html class="theme-next mist" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="theme-color" content="#222"><script src="/blog/lib/pace/pace.min.js?v=1.0.2"></script><link href="/blog/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Roboto Slab:300,300italic,400,400italic,700,700italicLobster Two:300,300italic,400,400italic,700,700italicSource Code Pro:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css"><link rel="apple-touch-icon" sizes="180x180" href="/blog/images/favicon.ico?v=5.1.4"><link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon.ico?v=5.1.4"><link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon.ico?v=5.1.4"><link rel="mask-icon" href="/blog/images/favicon.ico?v=5.1.4" color="#222"><meta name="keywords" content="Taro,React,"><link rel="alternate" href="/blog/atom.xml" title="琥珀丶川" type="application/atom+xml"><meta name="description" content="👽 Taro [‘tɑ:roʊ]，泰罗·奥特曼，宇宙警备队总教官，实力最强的奥特曼。多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在 小程序端、H5、React Native 等各平台的应用。"><meta name="keywords" content="Taro,React"><meta property="og:type" content="article"><meta property="og:title" content="Taro初探"><meta property="og:url" content="https://yechuanjie.com/blog/Taro/index.html"><meta property="og:site_name" content="琥珀丶川"><meta property="og:description" content="👽 Taro [‘tɑ:roʊ]，泰罗·奥特曼，宇宙警备队总教官，实力最强的奥特曼。多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在 小程序端、H5、React Native 等各平台的应用。"><meta property="og:locale" content="zh-Hans"><meta property="og:image" content="https://qiniu.image.cq-wnl.com/content/20190228f9a18bfcb9784471ac1e862b71b6cde7.png"><meta property="og:updated_time" content="2021-05-11T08:29:55.973Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Taro初探"><meta name="twitter:description" content="👽 Taro [‘tɑ:roʊ]，泰罗·奥特曼，宇宙警备队总教官，实力最强的奥特曼。多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在 小程序端、H5、React Native 等各平台的应用。"><meta name="twitter:image" content="https://qiniu.image.cq-wnl.com/content/20190228f9a18bfcb9784471ac1e862b71b6cde7.png"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/blog/",scheme:"Mist",version:"5.1.4",sidebar:{position:"left",display:"post",offset:12,b2t:!1,scrollpercent:!1,onmobile:!1},fancybox:!0,tabs:!0,motion:{enable:!1,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideRightIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},duoshuo:{userId:"0",author:"博主"},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="https://yechuanjie.com/blog/Taro/"><title>Taro初探 | 琥珀丶川</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container sidebar-position-left page-post-detail"><div class="headband"></div> <a href="https://github.com/Yechuanjie" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#64ceaa;color:#fff;position:absolute;top:0;border:0;right:0" aria-hidden="true"><path d="M0 0 115 115 130 115 142 142 250 250 250 0Z"></path><path d="M128.3 109C113.8 99.7 119 89.6 119 89.6 122 82.7 120.5 78.6 120.5 78.6 119.2 72 123.4 76.3 123.4 76.3 127.3 80.9 125.5 87.3 125.5 87.3 122.9 97.6 130.6 101.9 134.4 103.2" fill="currentColor" style="transform-origin:130px 106px" class="octo-arm"></path><path d="M115 115C114.9 115.1 118.7 116.5 119.8 115.4L133.7 101.6C136.9 99.2 139.9 98.4 142.2 98.6 133.8 88 127.5 74.4 143.8 58 148.5 53.4 154 51.2 159.7 51 160.3 49.4 163.2 43.6 171.4 40.1 171.4 40.1 176.1 42.5 178.8 56.2 183.1 58.6 187.2 61.8 190.9 65.4 194.5 69 197.7 73.2 200.1 77.6 213.8 80.2 216.3 84.9 216.3 84.9 212.7 93.1 206.9 96 205.4 96.6 205.1 102.4 203 107.8 198.3 112.5 181.9 128.9 168.3 122.5 157.7 114.1 157.9 116.9 156.7 120.9 152.7 124.9L141 136.5C139.8 137.7 141.6 141.9 141.8 141.8Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/blog/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">琥珀丶川</span><span class="logo-line-after"><i></i></span></a></div><p class="site-subtitle">下雨和撸码更配~</p></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-archives"><a href="/blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-categories"><a href="/blog/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i><br> 分类</a></li><li class="menu-item menu-item-tags"><a href="/blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-friends"><a href="/blog/friends" rel="section"><i class="menu-item-icon fa fa-fw fa-link"></i><br> 友链</a></li><li class="menu-item menu-item-项目集"><a href="//yechuanjie.com/project_index" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i><br> 项目集</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i></span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"> <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://yechuanjie.com/blog/blog/Taro/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Ye ChuanJie"><meta itemprop="description" content=""><meta itemprop="image" content="/blog/images/avatar.png"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="琥珀丶川"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Taro初探</h1><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar"></i></span> <span class="post-meta-item-text">发布时间：</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T13:18:11+00:00">2019-02-21</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类：</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/blog/categories/多端统一/" itemprop="url" rel="index"><span itemprop="name">多端统一</span></a></span></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span> <a href="/blog/Taro/#comments" itemprop="discussionUrl"><span class="post-meta-item-text">评论：</span><span class="post-comments-count valine-comment-count" data-xid="/blog/Taro/" itemprop="commentCount"></span></a></span> <span id="/blog/Taro/" class="leancloud_visitors" data-flag-title="Taro初探"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">浏览：</span><span class="leancloud-visitors-count"></span></span></div></header><div class="post-body" itemprop="articleBody"><p>👽 <code>Taro</code> [‘tɑ:roʊ]，泰罗·奥特曼，宇宙警备队总教官，实力最强的奥特曼。多端统一开发框架，支持用 React 的开发方式编写一次代码，生成能运行在 <code>小程序端</code>、<code>H5</code>、<code>React Native</code> 等各平台的应用。</p><a id="more"></a><h3 id="JSX-篇"><a href="#JSX-篇" class="headerlink" title="JSX 篇"></a>JSX 篇</h3><h4 id="jsx-支持情况"><a href="#jsx-支持情况" class="headerlink" title="jsx 支持情况"></a>jsx 支持情况</h4><ul><li>不能使用 <strong>Array#map</strong> 之外的方法操作 JSX 数组</li></ul><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">numbers.forEach(<span class="function">(<span class="params">numbers</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Taro中这里必须用map</span></span><br><span class="line">  <span class="keyword">if</span> (someCase) &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;View /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ul><li>不能在 JSX 参数中使用<strong>匿名函数</strong></li></ul><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;View</span><br><span class="line">  onClick=&#123;() =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.openPic;</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&gt;&lt;/View&gt;</span><br></pre></td></tr></table></figure><ul><li>暂不支持在 render() 之外的方法定义 JSX<br>假设现在页面中有一个音乐组件，不能这样使用</li></ul><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> music = <span class="built_in">require</span>(<span class="string">'../assets/music.mp3'</span>);</span><br><span class="line"><span class="keyword">const</span> loop = <span class="literal">true</span>;</span><br><span class="line">musicComponent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Audio src=&#123;music&#125; loop=&#123;loop&#125; /&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &#123;<span class="keyword">this</span>.musicComponent()&#125;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>不能在 JSX 参数中使用对象展开符</li></ul><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;View &#123;...this.props&#125; /&gt;</span><br></pre></td></tr></table></figure><ul><li><p>不支持无状态组件</p><p>由于微信的 template 能力有限，不支持动态传值和函数，Taro 暂时只支持一个文件只定义一个组件。为了避免开发者疑惑，暂时不支持定义<strong>无状态组件</strong>。</p></li></ul><h4 id="所有元素组件化"><a href="#所有元素组件化" class="headerlink" title="所有元素组件化"></a>所有元素组件化</h4><ul><li><p>不能使用 html 标签，所有标签以<strong>组件</strong>形式书写。Taro 实现了以微信小程序组件库为标准，结合 jsx 语法规范，定制了一套<a href="https://nervjs.github.io/taro/docs/components-desc.html" target="_blank" rel="noopener">组件库</a>，在不同的端上，会使用不同端的对应组件。</p></li><li><p>组件名不能和页面名相同。</p></li></ul><hr><h3 id="配置篇"><a href="#配置篇" class="headerlink" title="配置篇"></a>配置篇</h3><h4 id="项目配置"><a href="#项目配置" class="headerlink" title="项目配置"></a>项目配置</h4><p>项目初始后会默认自带微信小程序的配置文件<strong>project.config.js</strong>。<br>打包成其他平台小程序前，需要对应在根目录添加对应配置文件，否则运行报错。</p><ul><li>微信小程序，<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html?search-key=%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE" target="_blank" rel="noopener">project.config.json</a></li><li>百度智能小程序，<a href="https://smartprogram.baidu.com/docs/develop/devtools/projectconfig/" target="_blank" rel="noopener">project.swan.json</a></li><li>头条小程序，project.tt.json，文档暂无，大部分字段与微信小程序一致</li><li>支付宝小程序，无</li></ul><hr><h3 id="样式篇"><a href="#样式篇" class="headerlink" title="样式篇"></a>样式篇</h3><h4 id="兼容问题"><a href="#兼容问题" class="headerlink" title="兼容问题"></a>兼容问题</h4><p>如果只需要兼容<strong>小程序</strong>以及<strong>h5 端</strong>，基本上所有 css 属性都能使用。</p><p>如果要支持 <strong>React Native</strong> 端，必须采用 <strong>Flex</strong> 布局，并且样式选择器仅支持<strong>类选择器</strong>，且不支持 <strong>组合选择器</strong>。以下写法都是不支持的</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.button</span><span class="selector-class">.button_theme_islands</span> &#123;</span><br><span class="line">  <span class="attribute">font-style</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span> + <span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">font-style</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">p</span> ~ <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: DodgerBlue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">span</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: DodgerBlue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>React Native 端支持的 css 属性较少，比如不支持<strong>background-image</strong>，只能使用<strong>Image</strong>组件，配合 Flex 布局来实现。<strong>box-shadow</strong>不支持，position 只支持<strong>absolute</strong>和<strong>relative</strong>。 更多属性，见详细的<a href="https://reactnative.cn/docs/layout-props/" target="_blank" rel="noopener">css 属性列表</a>。</p><h4 id="编译成-React-Native"><a href="#编译成-React-Native" class="headerlink" title="编译成 React-Native"></a>编译成 React-Native</h4><p>一个简单的按钮，css 样式如下：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.back</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: <span class="number">500px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.back_btn</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">background</span>: cadetblue;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">70px</span>;</span><br><span class="line">  <span class="attribute">color</span>: aliceblue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>编译之后</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; StyleSheet &#125; <span class="keyword">from</span> <span class="string">"react-native"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> StyleSheet.create(&#123;</span><br><span class="line">  back: &#123;</span><br><span class="line">    width: <span class="string">"100%"</span>,</span><br><span class="line">    marginTop: <span class="number">250</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  back_btn: &#123;</span><br><span class="line">    width: <span class="number">150</span>,</span><br><span class="line">    height: <span class="number">50</span>,</span><br><span class="line">    textAlign: <span class="string">"center"</span>,</span><br><span class="line">    lineHeight: <span class="number">50</span>,</span><br><span class="line">    fontSize: <span class="number">25</span>,</span><br><span class="line">    marginTop: <span class="number">0</span>,</span><br><span class="line">    marginRight: <span class="string">"auto"</span>,</span><br><span class="line">    marginBottom: <span class="number">0</span>,</span><br><span class="line">    marginLeft: <span class="string">"auto"</span>,</span><br><span class="line">    backgroundColor: <span class="string">"cadetblue"</span>,</span><br><span class="line">    borderRadius: <span class="number">35</span>,</span><br><span class="line">    color: <span class="string">"aliceblue"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>React Native 中，会使用 StyleSheet.create 来集中定义组件的样式。<a href="https://reactnative.cn/docs/style/" target="_blank" rel="noopener">了解更多</a></p><h4 id="CSS-单位"><a href="#CSS-单位" class="headerlink" title="CSS 单位"></a>CSS 单位</h4><p>以 750px 设计稿为基准，css 样式以 px 为单位，如 750px 设计稿，一个按钮 200*100。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">width</span>: 200<span class="selector-tag">px</span>;</span><br><span class="line"><span class="selector-tag">height</span>: 100<span class="selector-tag">px</span>;</span><br></pre></td></tr></table></figure><p>设计稿尺寸可以在 config 文件中配置<strong>designWidth</strong>和<strong>deviceRatio</strong>字段。</p><blockquote><p>Taro 会根据不同平台来编译 px，小程序中 px 转换成 rpx，h5 中则转换成 rem，react-native 中转换成 pt。如果不希望单位被转换，可以通过写成 Px 或 PX 来避免。</p></blockquote><h4 id="默认样式"><a href="#默认样式" class="headerlink" title="默认样式"></a>默认样式</h4><p>一些默认组件如<strong>button</strong>、<strong>image</strong>的默认样式在各个平台上不一致，开发前需要重置样式。</p><h3 id="实际项目中遇到的问题"><a href="#实际项目中遇到的问题" class="headerlink" title="实际项目中遇到的问题"></a>实际项目中遇到的问题</h3><ul><li><p>h5 中使用第三方 js<br>h5 端可能会使用到三方 js 库，如果在小程序环境中，遇到 window，document 之类的变量，则会导致错误，解决方案是通过<strong>Taro.getEnv()</strong>判断环境后，按需引入三方库</p></li><li><p>audio 问题<br>微信小程序中，音频会以<strong>createAudioContext</strong>来处理，相关音频的操作，也只能使用<strong>playVoice</strong>，<strong>pauseVoice</strong>等方法。这些方法在 h5，react native 及其他部分小程序中都是不支持的。因此只能通过不同的环境做不同的处理。</p></li></ul><p>以下是点击音乐图标后，控制音乐暂停/播放的方法</p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">toggleMusic = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">    musicStatus: !<span class="keyword">this</span>.state.musicStatus,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">let</span> audio;</span><br><span class="line">  <span class="keyword">if</span> (Taro.getEnv() === <span class="string">'WEAPP'</span>) &#123;</span><br><span class="line">      audio = Taro.createAudioContext(<span class="string">'audio'</span>);</span><br><span class="line">      <span class="keyword">this</span>.state.musicStatus ? Taro.pauseVoice() : Taro.playVoice();</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Taro.getEnv() === <span class="string">'WEB'</span>)&#123;</span><br><span class="line">      audio = <span class="built_in">document</span>.querySelector(<span class="string">'audio'</span>);</span><br><span class="line">      <span class="keyword">this</span>.state.musicStatus ? audio.pause() : audio.play();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      audio = ... <span class="comment">//对应平台获取audio对象的方法</span></span><br><span class="line">      <span class="keyword">this</span>.state.musicStatus ? audio.pause() : audio.play();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h3 id="React-Native-平台调试"><a href="#React-Native-平台调试" class="headerlink" title="React Native 平台调试"></a>React Native 平台调试</h3><p><img src="https://qiniu.image.cq-wnl.com/content/20190228f9a18bfcb9784471ac1e862b71b6cde7.png" alt="chrome"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总体来说，Taro 的开发体验还是不错的。在编译不同平台的时候，可以通过配置 config/index.js 中的 outputRoot，来达到同时编译多个平台的代码的效果。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">  outputRoot: <span class="string">`dist/<span class="subst">$&#123;process.env.TARO_ENV&#125;</span>`</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Taro 对小程序端的兼容性基本一致，按照 Taro 规范的语法和组件来书写项目，基本能实现各端小程序以及 h5 端的统一开发。react native 端由于环境特殊，存在许多特殊的 api 无法通用的情况，只能通过获取当前环境来做兼容处理。</p></div><div><div><div style="text-align:center;color:#ccc;font-size:14px;margin-top:50px;margin-bottom:50px">-------------本文结束<i class="fa fa-codepen"></i>感谢您的阅读-------------</div></div></div><div><ul class="post-copyright"><li class="post-copyright-author"> <strong>本文作者：</strong> Ye ChuanJie</li><li class="post-copyright-link"> <strong>本文链接：</strong> <a href="https://yechuanjie.com/blog/Taro/" title="Taro初探">https://yechuanjie.com/blog/Taro/</a></li><li> <strong>发布时间：</strong> 2019年02月21日 - 13:18</li><li> <strong>最后更新：</strong> 2021年05月11日 - 08:29</li><li class="post-copyright-license"> <strong>版权声明：</strong> 本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！</li></ul></div><footer class="post-footer"><div class="post-tags"><a href="/blog/tags/Taro/" rel="tag"><i class="fa fa-tag"></i> Taro</a><a href="/blog/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/blog/vue_data_binding/" rel="next" title="写一个简单的vue双向数据绑定"><i class="fa fa-chevron-left"></i> 写一个简单的vue双向数据绑定</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"> <a href="/blog/lottie/" rel="prev" title="使用lottie-web制作高性能动画">使用lottie-web制作高性能动画<i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class="post-spread"></div></div></div><div class="comments" id="comments"></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview-wrap"> 站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/blog/images/avatar.png" alt="Ye ChuanJie"><p class="site-author-name" itemprop="name">Ye ChuanJie</p><p class="site-description motion-element" itemprop="description">🌴喝可乐的猫</p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/blog/archives/"><span class="site-state-item-count">5</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/blog/categories/index.html"><span class="site-state-item-count">3</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/blog/tags/index.html"><span class="site-state-item-count">6</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/blog/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"> <span class="links-of-author-item"><a href="https://github.com/Yechuanjie" target="_blank" title="GitHub">GitHub</a></span> <span class="links-of-author-item"><a href="https://juejin.im/user/57eb8d41a0bb9f005863369c" target="_blank" title="掘金">掘金</a></span> <span class="links-of-author-item"><a href="mailto:yechuanjie.me@gmail.com" target="_blank" title="邮箱">邮箱</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSX-篇"><span class="nav-number">1.</span> <span class="nav-text">JSX 篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jsx-支持情况"><span class="nav-number">1.1.</span> <span class="nav-text">jsx 支持情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#所有元素组件化"><span class="nav-number">1.2.</span> <span class="nav-text">所有元素组件化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置篇"><span class="nav-number">2.</span> <span class="nav-text">配置篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目配置"><span class="nav-number">2.1.</span> <span class="nav-text">项目配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样式篇"><span class="nav-number">3.</span> <span class="nav-text">样式篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容问题"><span class="nav-number">3.1.</span> <span class="nav-text">兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编译成-React-Native"><span class="nav-number">3.2.</span> <span class="nav-text">编译成 React-Native</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSS-单位"><span class="nav-number">3.3.</span> <span class="nav-text">CSS 单位</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#默认样式"><span class="nav-number">3.4.</span> <span class="nav-text">默认样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际项目中遇到的问题"><span class="nav-number">4.</span> <span class="nav-text">实际项目中遇到的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-Native-平台调试"><span class="nav-number">5.</span> <span class="nav-text">React Native 平台调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2018 - <span itemprop="copyrightYear">2021</span> <span>|</span> <span class="author" itemprop="copyrightHolder">Ye ChuanJie</span></div><div class="theme-info"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span><script type="text/javascript" src="/blog/js/src/runtime.js?v=5.1.4"></script></div><div class="busuanzi-count"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span class="site-uv"><i class="fa fa-user"></i> <span class="busuanzi-value" id="busuanzi_value_site_uv">正在载入uv...</span></span><span class="site-pv"><i class="fa fa-eye"></i> <span class="busuanzi-value" id="busuanzi_value_site_pv">正在载入pv...</span></span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script><script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script><script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script><script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script><script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'RRpsWunBomCOwQTN2luQ6aPv-gzGzoHsz',
+        appKey: '44TCEwTmFIJGDuT5vf0NLLCi',
+        placeholder: '输入邮箱才能正常回复哦~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script><script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script><script>AV.initialize("RRpsWunBomCOwQTN2luQ6aPv-gzGzoHsz","44TCEwTmFIJGDuT5vf0NLLCi")</script><script>function showTime(e){var t=new AV.Query(e),c=[],u=$(".leancloud_visitors");u.each(function(){c.push($(this).attr("id").trim())}),t.containedIn("url",c),t.find().done(function(e){var t=".leancloud-visitors-count";if(0!==e.length){for(var n=0;n<e.length;n++){var o=e[n],i=o.get("url"),s=o.get("time"),r=document.getElementById(i);$(r).find(t).text(s)}for(n=0;n<c.length;n++){i=c[n],r=document.getElementById(i);var l=$(r).find(t);""==l.text()&&l.text(0)}}else u.find(t).text(0)}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(i){var e=$(".leancloud_visitors"),s=e.attr("id").trim(),r=e.attr("data-flag-title").trim(),t=new AV.Query(i);t.equalTo("url",s),t.find({success:function(e){if(0<e.length){var t=e[0];t.fetchWhenSave(!0),t.increment("time"),t.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var n=new i,o=new AV.ACL;o.setPublicReadAccess(!0),o.setPublicWriteAccess(!0),n.setACL(o),n.set("title",r),n.set("url",s),n.set("time",1),n.save(null,{success:function(e){$(document.getElementById(s)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):1<$(".post-title-link").length&&showTime(e)})</script><script src="/blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!0,log:!1,model:{scale:1,hHeadPos:.5,vHeadPos:.618,jsonPath:"/blog/live2dw/assets/assets/koharu.model.json"},display:{superSample:2,width:50,height:100,position:"left",hOffset:30,vOffset:-20},mobile:{show:!0,scale:1},react:{opacityDefault:.7,opacityOnHover:.2}})</script><script type="text/javascript" src="/blog/js/src/crash_cheat.js?v=5.1.4"></script></body></html>
