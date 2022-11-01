@@ -14,7 +14,7 @@
     "gulp-uglify": "^3.0.1",
     "hanabi": "^0.4.0",
     "hexo": "^3.2.0",
-    "hexo-autoprefixer": "^1.0.0",
+    "hexo-autoprefixer": "^2.0.0",
     "hexo-deployer-git": "^0.3.1",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-category": "^0.1.3",
