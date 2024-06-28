@@ -35,12 +35,9 @@ jobs:
 
       - name: 安装依赖并打包
         run: |
-          npm install hexo-cli gulp -g
-          npm link gulp
           npm install
-          hexo clean
-          hexo g
-          gulp
+          npm install hexo-cli -g 
+          hexo clean & hexo g & gulp
 
       - name: 部署到GitHub
         uses: JamesIves/github-pages-deploy-action@v4
