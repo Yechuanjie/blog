@@ -39,7 +39,8 @@ jobs:
           npm install gulp -g
           npm install hexo-cli -g
           npm link gulp --no-bin-links
-          
+          hexo clean & hexo g
+
       - name: 输出当前目录
         run: |
           ls
