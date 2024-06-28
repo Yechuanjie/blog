@@ -11,7 +11,7 @@ categories: JavaScript
 
 <!-- more -->
 
-想提前看下效果的小伙伴请看[这里~](https://yechuanjie.com/lottie_demo)
+想提前看下效果的小伙伴请看[这里~](https://blog.9cnext.com/lottie_demo)
 
 
 ### Lottie 简介
@@ -164,6 +164,6 @@ loadResource(String(source)).then(json => {
 });
 ```
 
-###[点击查看demo](https://yechuanjie.com/lottie_demo)
+###[点击查看demo](https://blog.9cnext.com/lottie_demo)
 
 ###[github](https://github.com/Yechuanjie/lottie_demo)

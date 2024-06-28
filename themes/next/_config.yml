@@ -61,7 +61,7 @@ footer:
     enable: false
     # Version info of NexT after scheme info (vX.X.X).
     version: false
-  
+
   runtime:
     enable: true
   # -------------------------------------------------------------
@@ -102,7 +102,7 @@ menu:
   about: /about/ || user
   friends: /friends || link
   # 项目集: 'https://yechuanjie.github.io/project/index/index.html || code'
-  项目集: '//yechuanjie.com/project_index || code'
+  项目集: '//blog.9cnext.com/project_index || code'
 
   # schedule: /schedule/ || calendar
   # sitemap: /sitemap.xml || sitemap
