@@ -28,6 +28,16 @@ jobs:
         node_version: [14.x] # 使用node.js 14
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Checkout deploy repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ env.GIT_DEPLOY_REPO }}
+          ref: ${{ env.GIT_DEPLOY_BRANCH }}
+          path: .deploy_git
+
       - name: 使用Node.js版本：${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
@@ -39,7 +49,7 @@ jobs:
           npm install gulp -g
           npm install hexo-cli -g
           npm link gulp --no-bin-links
-          hexo clean & hexo g
+          hexo clean & hexo g & gulp
 
       - name: 输出当前目录
         run: |
@@ -50,11 +60,11 @@ jobs:
           cd ..
           ls
 
-      # - name: 部署到GitHub
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     repository-name: ${{ env.GIT_DEPLOY_REPO }}
-      #     branch: ${{ env.GIT_DEPLOY_BRANCH }} # 推送到gh_pages
-      #     folder: public # 部署文件夹
-      #     commit-message: 更新版本
+      - name: 部署到GitHub
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository-name: ${{ env.GIT_DEPLOY_REPO }}
+          branch:  ${{ env.GIT_DEPLOY_BRANCH }} # 推送到gh_pages
+          folder: public # 部署文件夹
+          commit-message: 更新版本
