@@ -37,7 +37,8 @@ jobs:
         run: |
           npm install
           npm install gulp -g
-          npm install hexo-cli -g 
+          npm install hexo-cli -g
+          npm link gulp --no-bin-links
           hexo clean & hexo g & gulp
 
       - name: 部署到GitHub
