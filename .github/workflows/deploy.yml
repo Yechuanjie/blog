@@ -15,7 +15,7 @@ env:
   # 仓库路径
   GIT_DEPLOY_REPO: Yechuanjie/blog
   # 打包后推送的分支
-  GIT_DEPLOY_BRANCH: gh_pages
+  GIT_DEPLOY_BRANCH: gh-pages
 
 jobs:
   build:
