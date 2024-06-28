@@ -28,15 +28,12 @@ jobs:
         node_version: [14.x] # 使用node.js 14
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Checkout deploy repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          repository: ${{ env.GIT_DEPLOY_REPO }}
-          ref: ${{ env.GIT_DEPLOY_BRANCH }}
-          path: .deploy_git
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # If your repository depends on submodule, please see: https://github.com/actions/checkout
+          submodules: recursive
+
 
       - name: 使用Node.js版本：${{ matrix.node_version }}
         uses: actions/setup-node@v1
