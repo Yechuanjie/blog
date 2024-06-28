@@ -36,6 +36,7 @@ jobs:
       - name: 安装依赖并打包
         run: |
           npm install hexo-cli gulp -g
+          npm link gulp
           npm install
           hexo clean
           hexo g
