@@ -41,14 +41,13 @@ jobs:
           npm link gulp --no-bin-links
 
           ls
+      
 
-          hexo clean & hexo g & gulp
-
-      - name: 部署到GitHub
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository-name: ${{ env.GIT_DEPLOY_REPO }}
-          branch: ${{ env.GIT_DEPLOY_BRANCH }} # 推送到gh_pages
-          folder: public # 部署文件夹
-          commit-message: 更新版本
+      # - name: 部署到GitHub
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     repository-name: ${{ env.GIT_DEPLOY_REPO }}
+      #     branch: ${{ env.GIT_DEPLOY_BRANCH }} # 推送到gh_pages
+      #     folder: public # 部署文件夹
+      #     commit-message: 更新版本
