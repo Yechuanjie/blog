@@ -8,7 +8,7 @@ tags:
 
 <!-- more -->
 
-该脚手架基于 [Create React App](https://www.html.cn/create-react-app/) 创建，方便快速搭建 react 移动端项目。[仓库地址](https://github.com/Yechuanjie/react-cli) && [项目地址（请在移动端查看）](https://blog.9cnext.com/react-cli/index)
+该脚手架基于 [Create React App](https://www.html.cn/create-react-app/) 创建，方便快速搭建 react 移动端项目。[仓库地址](https://github.com/Yechuanjie/react-cli) && [项目地址（请在移动端查看）](https://yechuanjie.github.io/react-cli/index)
 
 ### <span id="top">目录</span>
 
@@ -116,7 +116,7 @@ function Index() {
 
 本项目采用 `history` 模式，如需使用 `hash` 模式，请使用 `HashRouter` 替换 `BrowserRouter`
 
-`basename` 属性可以根据项目路径来修改，例如本项目地址为：[http://blog.9cnext.com/react-cli](http://blog.9cnext.com/react-cli)，则 `basename="/react-cli"`，若不需要子路径，则默认`basename = '/'`
+`basename` 属性可以根据项目路径来修改，例如本项目地址为：[http://yechuanjie.github.io/react-cli](http://yechuanjie.github.io/react-cli)，则 `basename="/react-cli"`，若不需要子路径，则默认`basename = '/'`
 
 `src/router/routes.ts`
 

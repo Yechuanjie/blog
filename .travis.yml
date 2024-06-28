@@ -18,7 +18,7 @@ script:
   - cd public
 
   # 添加自定义域名
-  # - echo 'blog.9cnext.com' > CNAME
+  # - echo 'me.9cnext.com' > CNAME
 
   - git init
   - git config user.name "yechuanjie"
